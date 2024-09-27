@@ -1,8 +1,8 @@
 group 'app.mylekha.client.flutter_usb_printer'
 version '1.0-SNAPSHOT'
+ext.kotlin_version = '1.7.10'
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
     repositories {
         google()
         jcenter()
