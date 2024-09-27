@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'android.hardware.usb.host'
+    namespace 'app.mylekha.client.flutter_usb_printer'
     compileSdkVersion 31
 
     sourceSets {
