@@ -1,34 +1,41 @@
-plugins {
-    id 'com.android.library' version '8.0.2'
-    id 'org.jetbrains.kotlin.android' version '1.8.0'
-}
-
 group 'app.mylekha.client.flutter_usb_printer'
 version '1.0-SNAPSHOT'
 
-android {
-    namespace 'app.mylekha.client.flutter_usb_printer'
-    compileSdkVersion 33
-
-    defaultConfig {
-        minSdkVersion 21
+buildscript {
+    ext.kotlin_version = '1.7.10'
+    repositories {
+        google()
+        jcenter()
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = '17'
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
-repositories {
-    google()
-    mavenCentral()
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace 'app.mylekha.client.flutter_usb_printer'
+    compileSdkVersion 31
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    defaultConfig {
+        minSdkVersion 16
+    }
 }
 
 dependencies {
-    // The Kotlin stdlib is included automatically; no need to specify it explicitly
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
